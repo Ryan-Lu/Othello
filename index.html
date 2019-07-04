@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>黑白棋</title>
+</head>
+<body>
+    <div id="container"></div>
+    <script>
+        let board= [
+            [0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 2, 1, 0, 0, 0],
+            [0, 0, 0, 1, 2, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0],
+        ];
+        let container = document.getElementById("container")
+
+        for (let y = 0; y < 8; y++) {
+            for (let x = 0; x < 8; x++) {            
+                const element = document.createElement("div");
+                element.style = "vertical-align: bottom; border: 1px solid white; width: 50px; height: 50px; background-color: darkgreen; display: inline-block;"
+                if(board[y][x] === 1) {
+                    let disc = document.createElement("div");
+                    disc.style="border-radius: 20px; width: 40px; height: 40px; background-color: black; margin: 5px auto;"
+                    element.appendChild(disc)
+                }
+                if(board[y][x] === 2) {
+                    let disc = document.createElement("div");
+                    disc.style="border-radius: 20px; width: 40px; height: 40px; background-color: white; margin: 5px auto;"
+                    element.appendChild(disc)
+                }
+                container.appendChild(element);
+            }
+            container.appendChild(document.createElement("br"));
+        }
+    </script>
+</body>
+</html>
